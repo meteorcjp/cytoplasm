@@ -109,7 +109,7 @@ function update(data,totalPoints,updateInterval) {
 
 function submitForm() {
 
-  var jqxhr = $.post( "comp2013.hyperspacedesign.co.uk/api/login/index.php", function() {
+  var jqxhr = $.post( "http://comp2013.hyperspacedesign.co.uk/api/login/index.php", function() {
   alert( "success" );
 })
   .done(function() {
