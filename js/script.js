@@ -109,14 +109,14 @@ function update(data,totalPoints,updateInterval) {
 
 function submitForm() {
 
-   $.post("login.php" ,
+   $.post("comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
    {
     username : $('#username').val(),
     password : $('#password').val()
   },
   function(data)
   {
-    if( data == "true")
+    if( data == "success")
     {
       localStorage.setItem("username", $('#username').val());
       window.location = "patientList.html";
