@@ -65,7 +65,6 @@ function createPatientDetails(result) {
 }
 
 
-
 function submitForm() {
 
    $.post("http://comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
@@ -125,33 +124,12 @@ function loadPatientDetails() {
 
 }
 
-$(document).ready(
-  function drawSensorGraph() {
+function drawSensorGraph() {
+  
+  var data = [],
+      totalPoints = 300;
 
-  var data = [];
-  var totalPoints = 100;
-  var updateInterval = 30;
-
-  data = getData(data,totalPoints)
-
-  var plot = $.plot("#placeholder", [ data ], {
-    series: {
-      shadowSize: 0 // Drawing is faster without shadows
-    },
-    yaxis: {
-      min: 0,
-      max: 100
-    },
-    xaxis: {
-      show: false
-    }
-  });
-
-  update(data,totalPoints,updateInterval);
-
-}
-
-function getData(data,totalPoints) {
+    function getRandomData() {
 
       if (data.length > 0)
         data = data.slice(1);
@@ -180,19 +158,49 @@ function getData(data,totalPoints) {
       }
 
       return res;
+    }
 
-}
+    // Set up the control widget
 
+    var updateInterval = 30;
+    $("#updateInterval").val(updateInterval).change(function () {
+      var v = $(this).val();
+      if (v && !isNaN(+v)) {
+        updateInterval = +v;
+        if (updateInterval < 1) {
+          updateInterval = 1;
+        } else if (updateInterval > 2000) {
+          updateInterval = 2000;
+        }
+        $(this).val("" + updateInterval);
+      }
+    });
 
-function update(data,totalPoints,updateInterval) {
+    var plot = $.plot("#placeholder", [ getRandomData() ], {
+      series: {
+        shadowSize: 0 // Drawing is faster without shadows
+      },
+      yaxis: {
+        min: 0,
+        max: 100
+      },
+      xaxis: {
+        show: false
+      }
+    });
 
-      plot.setData([getData(data,totalPoints)]);
+    function update() {
+
+      plot.setData([getRandomData()]);
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
 
       plot.draw();
-      setTimeout(update(data,totalPoints,updateInterval), updateInterval);
-      
-}
+      setTimeout(update, updateInterval);
+    }
 
-);
+    update();
+
+
+  
+}
