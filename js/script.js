@@ -168,12 +168,13 @@ function loadPatientDetails() {
 
 function drawSensorGraph() {
 
-  var data = [],
-    totalPoints = 100;
+  var data = [];
+  var totalPoints = 100;
   var updateInterval = 30;
-  
 
-  var plot = $.plot("#placeholder", [ getData(data,totalPoints) ], {
+  data = getData(data,totalPoints)
+
+  var plot = $.plot("#placeholder", [ data ], {
     series: {
       shadowSize: 0 // Drawing is faster without shadows
     },
