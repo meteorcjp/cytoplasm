@@ -129,7 +129,7 @@ jqxhr.always(function() {
   alert( "second finished" );
 });
 
-   $.post("comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
+   $.post("http://comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
    {
     username : $('#username').val(),
     password : $('#password').val()
