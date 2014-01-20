@@ -109,26 +109,6 @@ function update(data,totalPoints,updateInterval) {
 
 function submitForm() {
 
-  var jqxhr = $.post( "http://comp2013.hyperspacedesign.co.uk/api/login/index.php", function() {
-  alert( "success" );
-})
-  .done(function() {
-    alert( "second success" );
-  })
-  .fail(function() {
-    alert( "error" );
-  })
-  .always(function() {
-    alert( "finished" );
-});
- 
-// Perform other work here ...
- 
-// Set another completion function for the request above
-jqxhr.always(function() {
-  alert( "second finished" );
-});
-
    $.post("http://comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
    {
     username : $('#username').val(),
@@ -139,6 +119,7 @@ jqxhr.always(function() {
     if( data == "LOGIN_SUCCESSFUL")
     {
       localStorage.setItem("username", $('#username').val());
+      localStorage.setItem("password", $('#password').val());
       window.location = "patientList.html";
     }
     else
@@ -151,15 +132,17 @@ jqxhr.always(function() {
 
 function loadPatientList() {
 
-  var uname = localStorage.getItem("username");
+  var username = localStorage.getItem("username");
+  var password = localStorage.getItem("password");
   
-  $.post("patientList.php" ,
+  $.post("http://comp2013.hyperspacedesign.co.uk/api/articles/index.php" ,
     {
-      username : uname
+      username : username,
+      password : password
     },
     function(data)
     {
-      var patientList = data.split(',');
+      var patientList = data.split('/');
       var table = document.getElementById("responseTextA");
       table.innerHTML = createTable(patientList);
     });
@@ -176,7 +159,7 @@ function loadPatientDetails() {
   },
   function(data)
   {
-    var detail = data.split(',');
+    var detail = data.split('/');
     var patientDetails = document.getElementById("responseTextB");
     patientDetails.innerHTML =  createPatientDetails(detail);
   });
