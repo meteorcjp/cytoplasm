@@ -47,7 +47,7 @@ function createPatientDetails(result) {
 
   var str ='';
   for (var i = 0; i < result.length; i++) {
-      if(result[i] === "Heart Rate Sensor")
+      if(result[i] === "HeartRateSensor")
       {
         str += '<button id='+ result[i] + ' onclick = drawSensorGraph()> ' + result[i] +'</button></td>';
       }
@@ -124,11 +124,6 @@ function loadPatientDetails() {
 
 }
 
-$(document).ready(function () {
-  
-  var data = [],
-      totalPoints = 300;
-
     function getRandomData() {
 
       if (data.length > 0)
@@ -142,6 +137,11 @@ $(document).ready(function () {
           y = prev + Math.random() * 10 - 5;
 
         if (y < 0) {
+
+$(document).ready(function () {
+  
+  var data = [],
+      totalPoints = 300;
           y = 0;
         } else if (y > 100) {
           y = 100;
