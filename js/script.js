@@ -124,7 +124,7 @@ function loadPatientDetails() {
 
 }
 
-$document.ready(function () {
+$(document).ready(function () {
   
   var data = [],
       totalPoints = 300;
