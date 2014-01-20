@@ -15,7 +15,7 @@ function clickId(patient) {
 
 function createTable(result) {
 
-  var str = '<table>';
+  var str = '<table><tr><td>ID</td><td>Name</td><td>Date of birth</td><td>Address</td></tr>';
   for (var i = 0; i < result.length; i++) 
   {
     if(i%4 === 0){
