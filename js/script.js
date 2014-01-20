@@ -116,7 +116,7 @@ function submitForm() {
   },
   function(data)
   {
-    if( data === "LOGIN_SUCCESSFUL")
+    if( data == "LOGIN_SUCCESSFUL")
     {
       localStorage.setItem("username", $('#username').val());
       window.location = "patientList.html";
