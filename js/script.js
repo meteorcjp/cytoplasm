@@ -109,7 +109,27 @@ function update(data,totalPoints,updateInterval) {
 
 function submitForm() {
 
-   $.post("omp2013.hyperspacedesign.co.uk/api/login/index.php" ,
+  var jqxhr = $.post( "comp2013.hyperspacedesign.co.uk/api/login/index.php", function() {
+  alert( "success" );
+})
+  .done(function() {
+    alert( "second success" );
+  })
+  .fail(function() {
+    alert( "error" );
+  })
+  .always(function() {
+    alert( "finished" );
+});
+ 
+// Perform other work here ...
+ 
+// Set another completion function for the request above
+jqxhr.always(function() {
+  alert( "second finished" );
+});
+
+   $.post("comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
    {
     username : $('#username').val(),
     password : $('#password').val()
