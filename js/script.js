@@ -166,7 +166,8 @@ function loadPatientDetails() {
 
 }
 
-function drawSensorGraph() {
+$(document).ready(
+  function drawSensorGraph() {
 
   var data = [];
   var totalPoints = 100;
@@ -189,4 +190,4 @@ function drawSensorGraph() {
 
   update(data,totalPoints,updateInterval);
 
-}
+});
