@@ -109,7 +109,7 @@ function update(data,totalPoints,updateInterval) {
 
 function submitForm() {
 
-   $.post("https://comp2013.hyperspacedesign.co.uk/api/login/index.php" ,
+   $.post("omp2013.hyperspacedesign.co.uk/api/login/index.php" ,
    {
     username : $('#username').val(),
     password : $('#password').val()
