@@ -134,7 +134,7 @@ function drawSensorGraph() {
   var password = localStorage.getItem("password");
   var start = '';
   var end = '';
-  var artcle = '40';
+  var article = '40';
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
 
@@ -153,7 +153,7 @@ function drawSensorGraph() {
           end  : end,
           username : username,
           password : password,
-          artcle : artcle,
+          article : article,
           taxonomy : taxonomy
         },
         function(data_rec)
@@ -216,7 +216,7 @@ function testRec() {
   var password = localStorage.getItem("password");
   var start = '';
   var end = '';
-  var artcle = '40';
+  var article = '40';
   var taxonomy = 'health-cardio-heartrate';
 
 
@@ -226,12 +226,15 @@ function testRec() {
     end  : end,
     username : username,
     password : password,
-    artcle : artcle,
+    article : article,
     taxonomy : taxonomy
   },
   function(data_rec)
   {
-    addText(dataRecieve,data_rec);
+    if*(data_rec === 'null')
+      {addText(dataRecieve,'CAN NOT RECEIVE DATA');}
+    else{
+    addText(dataRecieve,data_rec);}
 
   });
 
