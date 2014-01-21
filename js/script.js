@@ -155,9 +155,9 @@ function drawSensorGraph() {
           artcle : artcle,
           taxonomy : taxonomy
         },
-        function(data)
+        function(data_rec)
         {
-          var readValues = data.split('/');
+          var readValues = data_rec.split('/');
           var y = readValues[0];
       
         });
