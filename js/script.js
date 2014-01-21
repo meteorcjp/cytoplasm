@@ -130,7 +130,14 @@ function drawSensorGraph() {
   var data = [],
       totalPoints = 300;
 
-    function getRandomData() {
+  var username = localStorage.getItem("username");
+  var password = localStorage.getItem("password");
+  var start = '';
+  var end = '';
+  var artcle = '40';
+  var taxonomy = 'health-cardio-heartrate';
+
+    function getData() {
 
       if (data.length > 0)
         data = data.slice(1);
@@ -139,14 +146,21 @@ function drawSensorGraph() {
 
       while (data.length < totalPoints) {
 
-        var prev = data.length > 0 ? data[data.length - 1] : 50,
-          y = prev + Math.random() * 10 - 5;
-
-        if (y < 0) {
-          y = 0;
-        } else if (y > 100) {
-          y = 100;
-        }
+        $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+        {
+          start : start,
+          end  : end,
+          username : username,
+          password : password,
+          artcle : artcle,
+          taxonomy : taxonomy
+        },
+        function(data)
+        {
+          var readValues = data.split('/');
+          var y = readValues[0];
+      
+        });
 
         data.push(y);
       }
@@ -163,10 +177,10 @@ function drawSensorGraph() {
 
     // Set up the control widget
 
-    var updateInterval = 30;
+    var updateInterval = 1000;
     
 
-    var plot = $.plot("#placeholder", [ getRandomData() ], {
+    var plot = $.plot("#placeholder", [ getData() ], {
       series: {
         shadowSize: 0 // Drawing is faster without shadows
       },
@@ -181,7 +195,7 @@ function drawSensorGraph() {
 
     function update() {
 
-      plot.setData([getRandomData()]);
+      plot.setData([getData()]);
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
 
