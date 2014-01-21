@@ -187,7 +187,7 @@ function drawSensorGraph() {
       },
       yaxis: {
         min: 0,
-        max: 100
+        max: 200
       },
       xaxis: {
         show: false
