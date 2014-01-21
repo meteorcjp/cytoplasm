@@ -196,7 +196,7 @@ function drawSensorGraph() {
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
 
-      document.getElementById("placeholder").innerHTML =  plot.draw();
+      document.getElementById("#placeholder").innerHTML =  plot.draw();
       setTimeout(update, updateInterval);
     }
 
