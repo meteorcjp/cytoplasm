@@ -210,7 +210,7 @@ function drawSensorGraph() {
   
 }
 
-function testRec() {
+/*function testRec() {
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
@@ -238,4 +238,4 @@ function testRec() {
 
   });
 
-}
+}*/
