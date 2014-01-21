@@ -19,9 +19,9 @@ function createTable(result) {
   for (var i = 0; i < result.length; i++) 
   {
     if(i%4 === 0){
-      if (result[i] === 'ID')
+      if (result[i] === '')
         {
-          str += '<tr><td>'+ result[i] + '</td>';
+          str = str;
         }
       else
         {
