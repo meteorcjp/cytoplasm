@@ -231,7 +231,7 @@ function testRec() {
   },
   function(data_rec)
   {
-    if(data_rec == 'error')
+    if(data_rec == 'ERROR')
       {addText(dataRecieve,'CAN NOT RECEIVE DATA');}
     else{
     addText(dataRecieve,data_rec);}
