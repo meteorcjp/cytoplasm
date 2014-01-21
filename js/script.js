@@ -124,6 +124,12 @@ function loadPatientDetails() {
 
 }
 
+  
+function drawSensorGraph() {
+  
+  var data = [],
+      totalPoints = 300;
+
     function getRandomData() {
 
       if (data.length > 0)
@@ -137,11 +143,6 @@ function loadPatientDetails() {
           y = prev + Math.random() * 10 - 5;
 
         if (y < 0) {
-
-$(document).ready(function () {
-  
-  var data = [],
-      totalPoints = 300;
           y = 0;
         } else if (y > 100) {
           y = 100;
@@ -203,4 +204,4 @@ $(document).ready(function () {
 
 
   
-});
+}
