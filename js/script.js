@@ -26,7 +26,7 @@ function createTable(result) {
       else
         {
         str += '<tr><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';
-        }collapse and expand div javascript
+        }
     }
     else{
       if(i%4 === 3){
