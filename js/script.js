@@ -26,7 +26,7 @@ function createTable(result) {
       else
         {
         str += '<tr><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';
-        }
+        }collapse and expand div javascript
     }
     else{
       if(i%4 === 3){
@@ -196,7 +196,7 @@ function drawSensorGraph() {
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
 
-      plot.draw();
+      document.getElementById("placeholder").innerHTML =  plot.draw();
       setTimeout(update, updateInterval);
     }
 
