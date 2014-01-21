@@ -136,6 +136,7 @@ function drawSensorGraph() {
   var end = '';
   var artcle = '40';
   var taxonomy = 'health-cardio-heartrate';
+  var y = '';
 
     function getData() {
 
@@ -158,7 +159,7 @@ function drawSensorGraph() {
         function(data_rec)
         {
           var readValues = data_rec.split('/');
-          var y = readValues[0];
+          y = readValues[0];
       
         });
 
