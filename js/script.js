@@ -209,3 +209,30 @@ function drawSensorGraph() {
 
   
 }
+
+function testRec() {
+
+  var username = localStorage.getItem("username");
+  var password = localStorage.getItem("password");
+  var start = '';
+  var end = '';
+  var artcle = '40';
+  var taxonomy = 'health-cardio-heartrate';
+
+
+  $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+  {
+    start : start,
+    end  : end,
+    username : username,
+    password : password,
+    artcle : artcle,
+    taxonomy : taxonomy
+  },
+  function(data_rec)
+  {
+    addText(dataRecieve,data_rec);
+
+  });
+
+}
