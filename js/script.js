@@ -164,18 +164,7 @@ function drawSensorGraph() {
     // Set up the control widget
 
     var updateInterval = 30;
-    $("#updateInterval").val(updateInterval).change(function () {
-      var v = $(this).val();
-      if (v && !isNaN(+v)) {
-        updateInterval = +v;
-        if (updateInterval < 1) {
-          updateInterval = 1;
-        } else if (updateInterval > 2000) {
-          updateInterval = 2000;
-        }
-        $(this).val("" + updateInterval);
-      }
-    });
+    
 
     var plot = $.plot("#placeholder", [ getRandomData() ], {
       series: {
@@ -196,7 +185,7 @@ function drawSensorGraph() {
 
       // Since the axes don't change, we don't need to call plot.setupGrid()
 
-      document.getElementById("#placeholder").innerHTML =  plot.draw();
+      plot.draw();
       setTimeout(update, updateInterval);
     }
 
