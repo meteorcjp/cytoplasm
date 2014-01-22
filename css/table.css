@@ -1,0 +1,26 @@
+table{
+	border: 1px solid black;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+}
+
+table td, th{
+	border: 1px solid #336699;
+
+}
+
+table th{
+	background-color: #336699;
+	color: white;
+	height:50px;
+}
+
+table tr.even{
+background-color: #336699;
+color: white;
+}
+
+table td{
+	text-align: center;
+}
