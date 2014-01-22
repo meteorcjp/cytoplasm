@@ -182,7 +182,7 @@ function drawSensorGraph() {
 
     // Set up the control widget
 
-    var updateInterval = 6000;
+    var updateInterval = 1000;
     
 
     var plot = $.plot("#placeholder", [ getData() ], {
