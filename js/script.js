@@ -16,7 +16,7 @@ function clickId(patient) {
 function createTable(result) {
 
   var str = '<table><tr><th>ID</th><th>Name</th><th>Date of birth</th><th>Address</th></tr>';
-  var even = 'even';
+  
   for (var i = 0; i < result.length; i++) 
   {
     if(i%4 === 0){
@@ -26,8 +26,8 @@ function createTable(result) {
         }
       else
         {
-          if(i%8 === 4)
-          {str += '<tr class =' + even + ' ><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';}
+          if(i%8 === 0)
+          {str += '<tr class = even ><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';}
         else
           {str += '<tr><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';}
         
