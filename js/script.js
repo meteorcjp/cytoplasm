@@ -26,7 +26,7 @@ function createTable(result) {
         }
       else
         {
-          if(i%2 === 1)
+          if(i%8 === 4)
           {str += '<tr class =' + even + ' ><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';}
         else
           {str += '<tr><td>'+ '<button id='+ result[i] + ' onclick = clickId(this)> ' + result[i] +'</button></td>';}
