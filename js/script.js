@@ -134,6 +134,7 @@ function loadPatientDetails() {
 
   var patientId = localStorage.getItem("patientId");
   var name = localStorage.getItem("name");
+  alert(name);
   var dob = localStorage.getItem("dob");
   var address = localStorage.getItem("address");
 
