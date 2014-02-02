@@ -13,18 +13,21 @@ function searchById(id,result)
         return i;
       } 
   }
+  return 'error';
 }
 
 function clickId(patient,result) {
 
-  localStorage.setItem("patientId", patient.id);
 
   var i = searchById(patient.id,result);
 
+  if (i != 'error')
+  {
+  localStorage.setItem("patientId", result[i]);
   localStorage.setItem("name", result[i+1]);
   localStorage.setItem("dob", result[i+2]);
   localStorage.setItem("address", result[i+3]);
-
+  }
 
   window.location = "patientDetails.html";
 
