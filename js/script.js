@@ -16,18 +16,18 @@ function searchById(id,result)
   return 'error';
 }
 
-function clickId(patient) {
+function clickId(patient, result) {
 
 
-  //var i = searchById(patient.id,result);
+  var i = searchById(patient.id,result);
 
- // if (i != 'error')
-  //{
-  localStorage.setItem("patientId", "result[i]");
-  localStorage.setItem("name", "result[i+1]");
-  localStorage.setItem("dob", "result[i+2]");
-  localStorage.setItem("address", "result[i+3]");
-  //}
+  if (i != 'error')
+  {
+  localStorage.setItem("patientId", result[i]);
+  localStorage.setItem("name", result[i+1]);
+  localStorage.setItem("dob", result[i+2]);
+  localStorage.setItem("address", result[i+3]);
+  }
 
   window.location = "patientDetails.html";
 
@@ -48,9 +48,9 @@ function createTable(result) {
       else
         {
           if(i%8 === 4)
-          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this) ><td>' + result[i] + '</td>';}
+          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this' + result + ') ><td>' + result[i] + '</td>';}
         else
-          {str += '<tr id='+ result[i] + ' onclick = clickId(this) ><td>' + result[i] + '</td>';}
+          {str += '<tr id='+ result[i] + ' onclick = clickId(this' + result + ') ><td>' + result[i] + '</td>';}
         
         }
     }
