@@ -23,10 +23,10 @@ function clickId(patient) {
 
  // if (i != 'error')
   //{
-  localStorage.setItem("patientId", 'result[i]');
-  localStorage.setItem("name", 'result[i+1]');
-  localStorage.setItem("dob", 'result[i+2]');
-  localStorage.setItem("address", 'result[i+3]');
+  localStorage.setItem("patientId", "result[i]");
+  localStorage.setItem("name", "result[i+1]");
+  localStorage.setItem("dob", "result[i+2]");
+  localStorage.setItem("address", "result[i+3]");
   //}
 
   window.location = "patientDetails.html";
@@ -137,7 +137,7 @@ function loadPatientDetails() {
 
   var patientId = localStorage.getItem("patientId");
   var name = localStorage.getItem("name");
-  alert('name');
+  alert(name);
   var dob = localStorage.getItem("dob");
   var address = localStorage.getItem("address");
 
