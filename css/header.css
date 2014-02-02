@@ -1,0 +1,35 @@
+section,p,div,img,h1,h2,h3,h4,h5,header,footer {
+font-family:"Open Sans",  Helvetica, Arial, sans-serif;
+font-weight: lighter;
+}
+header{
+    background-color: #ffffff; 
+	overflow: hidden;
+	height:30px;
+	width:100%;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+}
+
+
+header h1{
+	color: #000000;
+	font-size: 1em;
+    text-align: center;
+	vertical-align: center;
+}
+
+header h2{
+	color: #ffffff;
+	font-size: 1em;
+	text-align:right;
+	margin-top:1px;
+    }
+header h3{
+	color:#ffffff;
+	font-size:2em;
+	text-align:left;
+
+}
+
+
