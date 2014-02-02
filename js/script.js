@@ -5,9 +5,27 @@ function addText(target,text) {
 
 } 
 
-function clickId(patient) {
+function searchById(id,result)
+{
+  for (var i = 0; i < result.length; i+=4) {
+    if(result[i] === id)
+      {
+        return i;
+      } 
+  }
+}
+
+function clickId(patient,result) {
 
   localStorage.setItem("patientId", patient.id);
+
+  var i = searchById(patient.id,result);
+
+  localStorage.setItem("name", result[i+1]);
+  localStorage.setItem("dob", result[i+2]);
+  localStorage.setItem("address", result[i+3]);
+
+
   window.location = "patientDetails.html";
 
 }
@@ -27,9 +45,9 @@ function createTable(result) {
       else
         {
           if(i%8 === 4)
-          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this) ><td>'+ result[i] + '</td>';}
+          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this,result) ><td>'+ result[i] + '</td>';}
         else
-          {str += '<tr id='+ result[i] + ' onclick = clickId(this) ><td>'+ result[i] + '</td>';}
+          {str += '<tr id='+ result[i] + ' onclick = clickId(this,result) ><td>'+ result[i] + '</td>';}
         
         }
     }
@@ -115,17 +133,15 @@ function loadPatientList() {
 function loadPatientDetails() {
 
   var patientId = localStorage.getItem("patientId");
+  var name = localStorage.getItem("name");
+  var dob = localStorage.getItem("dob");
+  var address = localStorage.getItem("address");
 
-  $.post("patientDetails.php" ,
-   {
-    userId : patientId
-  },
-  function(data)
-  {
-    var detail = data.split('/');
-    var patientDetails = document.getElementById("responseTextB");
-    patientDetails.innerHTML =  createPatientDetails(detail);
-  });
+  
+  var detail = 'patientID:/' + patientID + '/Name:/' + name + '/DateOfBirth:/' + dob + '/Address:/' + address + '/Sensor:/HeartRateSensor';
+  var detailList = detail.split('/');
+  var patientDetails = document.getElementById("responseTextB");
+  patientDetails.innerHTML =  createPatientDetails(detailList);
 
 }
 
