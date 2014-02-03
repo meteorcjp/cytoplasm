@@ -1,3 +1,5 @@
+var patient_list = null;
+
 function addText(target,text) {
 
     var myTarget = document.getElementById(target);
@@ -5,10 +7,10 @@ function addText(target,text) {
 
 } 
 
-function searchById(id,result)
+function searchById(id)
 {
-  for (var i = 0; i < result.length; i+=4) {
-    if(result[i] === id)
+  for (var i = 0; i < patient_list.length; i+=4) {
+    if(patient_list[i] === id)
       {
         return i;
       } 
@@ -16,17 +18,17 @@ function searchById(id,result)
   return 'error';
 }
 
-function clickId(patient, result) {
+function clickId(patient) {
 
 
-  var i = searchById(patient.id,result);
+  var i = searchById(patient.id);
 
   if (i != 'error')
   {
-  localStorage.setItem("patientId", result[i]);
-  localStorage.setItem("name", result[i+1]);
-  localStorage.setItem("dob", result[i+2]);
-  localStorage.setItem("address", result[i+3]);
+  localStorage.setItem("patientId", patient_list[i]);
+  localStorage.setItem("name", patient_list[i+1]);
+  localStorage.setItem("dob", patient_list[i+2]);
+  localStorage.setItem("address", patient_list[i+3]);
   }
 
   window.location = "patientDetails.html";
@@ -48,9 +50,9 @@ function createTable(result) {
       else
         {
           if(i%8 === 4)
-          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this,' + result + ') ><td>' + result[i] + '</td>';}
+          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this) ><td>' + result[i] + '</td>';}
         else
-          {str += '<tr id='+ result[i] + ' onclick = clickId(this,' + result + ') ><td>' + result[i] + '</td>';}
+          {str += '<tr id='+ result[i] + ' onclick = clickId(this) ><td>' + result[i] + '</td>';}
         
         }
     }
@@ -127,6 +129,7 @@ function loadPatientList() {
     function(data)
     {
       var patientList = data.split('/');
+      var patient_list = patientList;
       var table = document.getElementById("responseTextA");
       table.innerHTML = createTable(patientList);
     });
