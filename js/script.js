@@ -145,7 +145,7 @@ function loadPatientDetails() {
   var address = localStorage.getItem("address");
 
   
-  var detail = 'patientID:/' + patientID + '/Name:/' + name + '/DateOfBirth:/' + dob + '/Address:/' + address + '/Sensor:/HeartRateSensor';
+  var detail = 'patientID:/' + patientId + '/Name:/' + name + '/DateOfBirth:/' + dob + '/Address:/' + address + '/Sensor:/HeartRateSensor';
   var detailList = detail.split('/');
   var patientDetails = document.getElementById("responseTextB");
   patientDetails.innerHTML =  createPatientDetails(detailList);
