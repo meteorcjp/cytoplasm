@@ -217,7 +217,7 @@ function drawSensorGraph() {
         max: 200
       },
       xaxis: {
-        show: false
+        show: true
       }
     });
 
