@@ -129,7 +129,7 @@ function loadPatientList() {
     function(data)
     {
       var patientList = data.split('/');
-      var patient_list = patientList;
+      patient_list = patientList;
       var table = document.getElementById("responseTextA");
       table.innerHTML = createTable(patientList);
     });
