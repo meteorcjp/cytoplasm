@@ -1,3 +1,5 @@
+var patient_list = null;
+
 function addText(target,text) {
 
     var myTarget = document.getElementById(target);
@@ -5,9 +7,30 @@ function addText(target,text) {
 
 } 
 
+function searchById(id)
+{
+  for (var i = 0; i < patient_list.length; i+=4) {
+    if(patient_list[i] === id)
+      {
+        return i;
+      } 
+  }
+  return 'error';
+}
+
 function clickId(patient) {
 
-  localStorage.setItem("patientId", patient.id);
+
+  var i = searchById(patient.id);
+
+  if (i != 'error')
+  {
+  localStorage.setItem("patientId", patient_list[i]);
+  localStorage.setItem("name", patient_list[i+1]);
+  localStorage.setItem("dob", patient_list[i+2]);
+  localStorage.setItem("address", patient_list[i+3]);
+  }
+
   window.location = "patientDetails.html";
 
 }
@@ -27,9 +50,9 @@ function createTable(result) {
       else
         {
           if(i%8 === 4)
-          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this) ><td>'+ result[i] + '</td>';}
+          {str += '<tr class=even id='+ result[i] + ' onclick = clickId(this) ><td>' + result[i] + '</td>';}
         else
-          {str += '<tr id='+ result[i] + ' onclick = clickId(this) ><td>'+ result[i] + '</td>';}
+          {str += '<tr id='+ result[i] + ' onclick = clickId(this) ><td>' + result[i] + '</td>';}
         
         }
     }
@@ -106,6 +129,7 @@ function loadPatientList() {
     function(data)
     {
       var patientList = data.split('/');
+      patient_list = patientList;
       var table = document.getElementById("responseTextA");
       table.innerHTML = createTable(patientList);
     });
@@ -115,17 +139,15 @@ function loadPatientList() {
 function loadPatientDetails() {
 
   var patientId = localStorage.getItem("patientId");
+  var name = localStorage.getItem("name");
+  var dob = localStorage.getItem("dob");
+  var address = localStorage.getItem("address");
 
-  $.post("patientDetails.php" ,
-   {
-    userId : patientId
-  },
-  function(data)
-  {
-    var detail = data.split('/');
-    var patientDetails = document.getElementById("responseTextB");
-    patientDetails.innerHTML =  createPatientDetails(detail);
-  });
+  
+  var detail = 'ID: /' + patientId + '/Name: /' + name + '/Date Of Birth: /' + dob + '/Address: /' + address + '/Sensor: /HeartRateSensor';
+  var detailList = detail.split('/');
+  var patientDetails = document.getElementById("responseTextB");
+  patientDetails.innerHTML =  createPatientDetails(detailList);
 
 }
 
