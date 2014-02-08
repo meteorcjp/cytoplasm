@@ -157,7 +157,7 @@ function drawSensorGraph() {
   var data = [],
       totalPoints = 3600;
 
-  var currentTime = new Date().getTime / 1000
+  var currentTime = new Date().getTime / 1000;
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
