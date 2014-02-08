@@ -155,14 +155,14 @@ function loadPatientDetails() {
 function drawSensorGraph() {
   
   var data = [],
-      totalPoints = 60;
+      totalPoints = 3600;
 
   var currentTime = new Date().getTime / 1000
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = currentTime - 3600;
-  var end = currentTime;
+  var start = currentTime - 1209600;
+  var end = currentTime - 1206000;
   var article = '40';
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
