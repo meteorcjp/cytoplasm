@@ -157,10 +157,12 @@ function drawSensorGraph() {
   var data = [],
       totalPoints = 60;
 
+  var currentTime = new Date().getTime / 1000
+
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = '';
-  var end = '';
+  var start = currentTime - 3600;
+  var end = currentTime;
   var article = '40';
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
