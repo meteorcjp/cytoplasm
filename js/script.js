@@ -155,7 +155,7 @@ function drawGraph1() {
       totalPoints = 720;
 
   var currentTime = new Date().getTime()/1000;
-  alert(currentTime);
+
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
@@ -186,6 +186,7 @@ function drawGraph1() {
       {
         var readValues = data_rec.split('/');    
         y = readValues[readValues.length-2];
+        alert(y);
       }
       );
 
