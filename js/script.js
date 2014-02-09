@@ -75,14 +75,10 @@ function createPatientDetails(result) {
 
   var str ='';
   for (var i = 0; i < result.length; i++) {
-      if(result[i] === "HeartRateSensor")
-      {
-        str += '<button id='+ result[i] + ' onclick = drawSensorGraph()> ' + result[i] +'</button></td>';
-      }
-      else
-      {
+     
+      
       str += result[i];
-      }
+      
       if(i%2 === 1)
       {
         str += '<br>';
