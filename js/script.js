@@ -75,16 +75,15 @@ function createPatientDetails(result) {
 
   var str ='';
   for (var i = 0; i < result.length; i++) {
-     
+     str += result[i];
       
-      str += result[i];
-      
-      if(i%2 === 1)
-      {
-        str += '<br>';
-      } 
-    }
-    return str;
+    if(i%2 === 1)
+    {
+      str += '<br>';
+    } 
+  }
+
+  return str;
 
 }
 
@@ -145,23 +144,23 @@ function loadPatientDetails() {
   var patientDetails = document.getElementById("responseTextB");
   patientDetails.innerHTML =  createPatientDetails(detailList);
 
-  drawSensorGraph();
+  drawGraph1();
 
 }
 
   
-function drawSensorGraph() {
+function drawGraph1() {
   
   var data = [],
-      totalPoints = 3600;
+      totalPoints = 60;
 
   var currentTime = new Date().getTime / 1000;
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = currentTime - 1209600;
-  var end = currentTime - 1206000;
-  var article = '40';
+  var start = currentTime;
+  var end = currentTime;
+  var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
 
