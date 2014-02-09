@@ -199,7 +199,7 @@ function drawGraph1() {
 
     // Set up the control widget
 
-    var updateInterval = 5000;
+    var updateInterval = 500;
     
 
     var plot = $.plot("#placeholder", [ getData() ], {
