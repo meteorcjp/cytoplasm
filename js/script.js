@@ -180,7 +180,9 @@ function drawGraph1() {
     function(data_rec)
     {
       var readValues = data_rec.split('/');    
-      data = readValues;
+      data = readValues;  
+      var dataReceive = document.getElementById("dataReceive");
+      dataReceive.innerText = data ;
     }
     );
 
