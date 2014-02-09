@@ -154,7 +154,8 @@ function drawGraph1() {
   var data = [],
       totalPoints = 720;
 
-  var currentTime = new Date().getTime()/1000;
+  var currentTime = Math.round(new Date().getTime()/1000);
+  alert(currentTime);
 
 
   var username = localStorage.getItem("username");
@@ -186,9 +187,15 @@ function drawGraph1() {
       {
         var readValues = data_rec.split('/');    
         y = readValues[readValues.length-1];
-
         var dataReceive = document.getElementById("dataReceive");
-        dataReceive.innerText = readValues;
+        if(readValues === '')
+        {
+          dataReceive.innerHTML = "nothing";
+        }
+        else
+        {
+          dataReceive.innerHTML = readValues;
+        }
     
       }
       );
