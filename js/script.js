@@ -145,6 +145,8 @@ function loadPatientDetails() {
   var patientDetails = document.getElementById("responseTextB");
   patientDetails.innerHTML =  createPatientDetails(detailList);
 
+  drawSensorGraph();
+
 }
 
   
