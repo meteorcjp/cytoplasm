@@ -179,8 +179,10 @@ function drawGraph1() {
     },
     function(data_rec)
     {
-      var readValues = data_rec.split('/');    
-      data = readValues;  
+      var readValues = data_rec.split('/');  
+      for (var i = 0; i < readValues.length; i+=2) {
+          data[i] = readValues[i];
+        };   
       var dataReceive = document.getElementById("dataReceive");
       dataReceive.innerText = data ;
     }
@@ -190,7 +192,7 @@ function drawGraph1() {
     // Zip the generated y values with the x values
 
     var res = [];
-    for (var i = 0; i < data.length; i+=2) {
+    for (var i = 0; i < data.length; i++) {
       res.push([i, data[i]])
     }
 
