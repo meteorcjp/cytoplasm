@@ -189,11 +189,11 @@ function drawGraph1() {
         var dataReceive = document.getElementById("dataReceive");
         if(y === '')
         {
-          dataReceive.innerText = "nothing";
+          dataReceive.innerHTML = "nothing";
         }
         else
         {
-          dataReceive.innerText = y;
+          dataReceive.innerHTML = y;
         }
     
       }
