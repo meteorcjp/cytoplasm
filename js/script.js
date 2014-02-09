@@ -186,7 +186,8 @@ function drawGraph1() {
       {
         var readValues = data_rec.split('/');    
         y = readValues[readValues.length-1];
-        alert(y);
+        var dataReceive = document.getElementById("dataReceive");
+        dataReceive.innerHTML =  y;
       }
       );
 
