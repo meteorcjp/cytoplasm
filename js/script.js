@@ -159,7 +159,7 @@ function drawGraph1() {
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = currentTime-3600;
+  var start = currentTime - 3600;
   var end = currentTime;
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
@@ -185,7 +185,7 @@ function drawGraph1() {
       function(data_rec)
       {
         var readValues = data_rec.split('/');    
-        y = readValues[readValues.length-2];
+        y = readValues[readValues.length-1];
         alert(y);
       }
       );
