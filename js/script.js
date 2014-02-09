@@ -187,7 +187,15 @@ function drawGraph1() {
         var readValues = data_rec.split('/');    
         y = readValues[readValues.length-1];
         var dataReceive = document.getElementById("dataReceive");
-        dataReceive.innerHTML =  y;
+        if(y === '')
+        {
+          dataReceive.innerText = "nothing";
+        }
+        else
+        {
+          dataReceive.innerText = y;
+        }
+    
       }
       );
 
