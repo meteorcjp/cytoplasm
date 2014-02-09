@@ -160,8 +160,8 @@ function drawGraph1() {
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = currentTime - 3600;
-  var end = currentTime;
+  var start = '';
+  var end = '';
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
