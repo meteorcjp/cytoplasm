@@ -152,9 +152,10 @@ function loadPatientDetails() {
 function drawGraph1() {
   
   var data = [],
-      totalPoints = 60;
+      totalPoints = 720;
 
   var currentTime = new Date().getTime / 1000;
+  alert(currentTime);
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
@@ -164,46 +165,45 @@ function drawGraph1() {
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
 
-    function getData() {
+  function getData() {
 
-      if (data.length > 0)
-        data = data.slice(1);
+    if (data.length > 0)
+      data = data.slice(1);
 
 
-      while (data.length < totalPoints) {
+    while (data.length < totalPoints) {
 
-        $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
-        {
-          start : start,
-          end  : end,
-          username : username,
-          password : password,
-          article : article,
-          taxonomy : taxonomy
-        },
-        function(data_rec)
-        {
-          var readValues = data_rec.split('/');
-          y = readValues[0];
-        }
-        );
-
-        data.push(y);
+      $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+      {
+        start : start,
+        end  : end,
+        username : username,
+        password : password,
+        article : article,
+        taxonomy : taxonomy
+      },
+      function(data_rec)
+      {
+        var readValues = data_rec.split('/');    
+        data = readValues;
       }
+      );
 
-      // Zip the generated y values with the x values
-
-      var res = [];
-      for (var i = 0; i < data.length; ++i) {
-        res.push([i, data[i]])
-      }
-
-      return res;
     }
+
+    // Zip the generated y values with the x values
+
+    var res = [];
+    for (var i = 0; i < data.length; ++i) {
+      res.push([i, data[i]])
+    }
+
+    return res;
+  }
 
     // Set up the control widget
 
-    var updateInterval = 1000;
+    var updateInterval = 5000;
     
 
     var plot = $.plot("#placeholder", [ getData() ], {
