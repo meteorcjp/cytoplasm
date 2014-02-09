@@ -180,8 +180,8 @@ function drawGraph1() {
     function(data_rec)
     {
       var readValues = data_rec.split('/');  
-      for (var i = 0; i < readValues.length; i+=2) {
-          data[i] = readValues[i];
+      for (var i = 0; i < readValues.length/2; i++) {
+          data[i] = readValues[i*2];
         };   
       var dataReceive = document.getElementById("dataReceive");
       dataReceive.innerText = data ;
