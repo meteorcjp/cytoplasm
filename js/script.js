@@ -167,7 +167,7 @@ function drawGraph1() {
 
   function getData() {
 
-    if (data.length > 0)
+    if (data.length >= totalPoints)
       data = data.slice(1);
 
 
@@ -185,9 +185,11 @@ function drawGraph1() {
       function(data_rec)
       {
         var readValues = data_rec.split('/');    
-        data = readValues;
+        y = readValues[readValues.length-2];
       }
       );
+
+      data.push(y);
 
     }
 
