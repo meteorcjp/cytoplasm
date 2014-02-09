@@ -205,9 +205,6 @@ function drawGraph1() {
 
   function getData() {
 
-    currentTime = Math.round(new Date().getTime()/1000);
-    start = currentTime - 3600;
-    end = currentTime;
  
     if (data.length > 0)
        data = data.slice(1);
@@ -215,6 +212,10 @@ function drawGraph1() {
        
  
     while (data.length < totalPoints) {
+
+      currentTime = Math.round(new Date().getTime()/1000);
+      start = currentTime - 3600;
+      end = currentTime;
 
        $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
        {
