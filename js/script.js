@@ -154,13 +154,13 @@ function drawGraph1() {
   var data = [],
       totalPoints = 720;
 
-  var currentTime = new Date().getTime / 1000;
-  alert(currentTime);
+  var currentTime = new Date();
+  alert(currentTime.getTime / 1000);
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = currentTime;
-  var end = currentTime;
+  var start = currentTime.getTime / 1000;
+  var end = currentTime.getTime / 1000;
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
