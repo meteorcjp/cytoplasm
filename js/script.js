@@ -155,7 +155,7 @@ function drawGraph1() {
       totalPoints = 720;
 
   var currentTime = Math.round(new Date().getTime()/1000);
-  alert(currentTime);
+
 
 
   var username = localStorage.getItem("username");
@@ -168,46 +168,27 @@ function drawGraph1() {
 
   function getData() {
 
-    if (data.length >= totalPoints)
-      data = data.slice(1);
-
-
-    while (data.length < totalPoints) {
-
-      $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
-      {
-        start : start,
-        end  : end,
-        username : username,
-        password : password,
-        article : article,
-        taxonomy : taxonomy
-      },
-      function(data_rec)
-      {
-        var readValues = data_rec.split('/');    
-        y = readValues[readValues.length-1];
-        var dataReceive = document.getElementById("dataReceive");
-        if(readValues === '')
-        {
-          dataReceive.innerHTML = "nothing";
-        }
-        else
-        {
-          dataReceive.innerHTML = readValues;
-        }
-    
-      }
-      );
-
-      data.push(y);
-
+    $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+    {
+      start : start,
+      end  : end,
+      username : username,
+      password : password,
+      article : article,
+      taxonomy : taxonomy
+    },
+    function(data_rec)
+    {
+      var readValues = data_rec.split('/');    
+      data = readValues;
     }
+    );
+
 
     // Zip the generated y values with the x values
 
     var res = [];
-    for (var i = 0; i < data.length; ++i) {
+    for (var i = 0; i < data.length; i+=2) {
       res.push([i, data[i]])
     }
 
