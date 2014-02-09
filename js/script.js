@@ -205,7 +205,7 @@ function drawGraph1() {
 
     // Set up the control widget
 
-    var updateInterval = 500;
+    var updateInterval = 5000;
     
 
     var plot = $.plot("#placeholder", [ getData() ], {
