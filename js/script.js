@@ -160,13 +160,17 @@ function drawGraph1() {
 
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = '';
-  var end = '';
+  var start = currentTime - 3600;
+  var end = currentTime;
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
 
   function getData() {
+
+    currentTime = Math.round(new Date().getTime()/1000);
+    start = currentTime - 3600;
+    end = currentTime;
 
     $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
     {
