@@ -166,7 +166,7 @@ function drawGraph1() {
   var taxonomy = 'health-cardio-heartrate';
   var y = '';
 
-  function getData() {
+  /*function getData() {
 
     currentTime = Math.round(new Date().getTime()/1000);
     start = currentTime - 3600;
@@ -192,7 +192,6 @@ function drawGraph1() {
     }
     );
 
-
     // Zip the generated y values with the x values
 
     var res = [];
@@ -201,7 +200,50 @@ function drawGraph1() {
     }
 
     return res;
-  }
+  }*/
+
+
+  function getData() {
+
+    currentTime = Math.round(new Date().getTime()/1000);
+    start = currentTime - 3600;
+    end = currentTime;
+ 
+    if (data.length > 0)
+       data = data.slice(1);
+ 
+       
+ 
+    while (data.length < totalPoints) {
+
+       $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+       {
+         start : start,
+         end  : end,
+         username : username,
+         password : password,
+         article : article,
+         taxonomy : taxonomy
+       },
+       function(data_rec)
+       {
+         var readValues = data_rec.split('/');
+         y = readValues[0];
+     
+       });
+
+       data.push(y);
+    }
+
+     // Zip the generated y values with the x values
+
+     var res = [];
+     for (var i = 0; i < data.length; ++i) {
+       res.push([i, data[i]])
+     }
+
+     return res;
+   }
 
     // Set up the control widget
 
