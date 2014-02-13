@@ -3,30 +3,31 @@ font-family:"Open Sans",  Helvetica, Arial, sans-serif;
 font-weight: lighter;
 }
 header{
-    background-color: #ffffff; 
+    background-color: #f0f0f0; 
 	overflow: hidden;
-	height:30px;
+	height:90px;
 	width:100%;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #999;
 	margin-bottom: 20px;
+
 }
 
 
 header h1{
-	color: #000000;
-	font-size: 1em;
+	color: #777;
+	font-size: 2em;
     text-align: center;
 	vertical-align: center;
 }
 
 header h2{
-	color: #ffffff;
-	font-size: 1em;
-	text-align:right;
-	margin-top:1px;
+	color: #777;
+	font-size: 2em;
+	text-align:left;
+	vertical-align: center;
     }
 header h3{
-	color:#ffffff;
+	color:#444;
 	font-size:2em;
 	text-align:left;
 
