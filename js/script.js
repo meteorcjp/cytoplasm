@@ -164,17 +164,55 @@ function drawGraph1() {
   var storedData = [];
   var totalPoints = 720;
 
-  var currentTime = Math.round(new Date().getTime()/1000);
+  //var currentTime = Math.round(new Date().getTime()/1000);
  // var currentTime = '';
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
 
-  var start = currentTime-1;
-  var end = currentTime;
+  //var start = currentTime-1;
+  //var end = currentTime;
 
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
 
+  function getInitialData() {
+
+    var currentTime = Math.round(new Date().getTime()/1000);
+    var start = currentTime-3600;
+    var end = currentTime;
+
+    
+    $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+    {
+     start : start,
+     end  : end,
+     username : username,
+     password : password,
+     article : article,
+     taxonomy : taxonomy
+    },
+    function(data_rec)
+    {
+     var readValues = data_rec.split('/');
+     if(readValues != '')
+     {
+     var oddValues = getOddValues(readValues);
+     storedData = storedData.concat(oddValues);
+     }
+    });
+
+    printData = storedData.slice(storedData.length-totalPoints, storedData.length-1);
+
+     // Zip the generated y values with the x values
+
+     var res = [];
+     for (var i = 0; i < printData.length; ++i) {
+       res.push([i, data[i]])
+     }
+
+     return res;
+    
+  }
 
   function getData() {
 
@@ -230,7 +268,7 @@ function drawGraph1() {
     var updateInterval = 5000;
     
 
-    var plot = $.plot("#placeholder", [ getData() ], {
+    var plot = $.plot("#placeholder", [ getInitialData() ], {
       series: {
         shadowSize: 0 // Drawing is faster without shadows
       },
