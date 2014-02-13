@@ -175,42 +175,6 @@ function drawGraph1() {
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
 
-  /*function getData() {
-
-    currentTime = Math.round(new Date().getTime()/1000);
-    start = currentTime - 3600;
-    end = currentTime;
-
-    $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
-    {
-      start : start,
-      end  : end,
-      username : username,
-      password : password,
-      article : article,
-      taxonomy : taxonomy
-    },
-    function(data_rec)
-    {
-      var readValues = data_rec.split('/');  
-      for (var i = 0; i < readValues.length/2; i++) {
-          data[i] = readValues[i*2];
-        };   
-      var dataReceive = document.getElementById("dataReceive");
-      dataReceive.innerText = data ;
-    }
-    );
-
-    // Zip the generated y values with the x values
-
-    var res = [];
-    for (var i = 0; i < data.length; i++) {
-      res.push([i, data[i]])
-    }
-
-    return res;
-  }*/
-
 
   function getData() {
 
