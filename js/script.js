@@ -148,23 +148,32 @@ function loadPatientDetails() {
 
 }
 
+function getOddValues(array)
+{
+  var arrayOdd = [];
+  for (var i = 0; i < array.length/2; i++) {
+    arrayOdd[i] = array[i*2];
+  }
+  return arrayOdd;
+}
+
   
 function drawGraph1() {
   
-  var data = [],
-      totalPoints = 720;
+  var printData = [];
+  var storedData = [];
+  var totalPoints = 720;
 
   var currentTime = Math.round(new Date().getTime()/1000);
-
-
-
+ // var currentTime = '';
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
-  var start = currentTime - 3600;
+
+  var start = currentTime-1;
   var end = currentTime;
+
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
-  var y = '';
 
   /*function getData() {
 
@@ -206,40 +215,46 @@ function drawGraph1() {
   function getData() {
 
  
-    if (data.length > 0)
-       data = data.slice(1);
+    if (printData.length > 0)
+    {
+       printData = printData.slice(1);
+    }
  
-       
- 
-    while (data.length < totalPoints) {
+    while (printData.length < totalPoints) {
 
       currentTime = Math.round(new Date().getTime()/1000);
-      start = currentTime - 3600;
+      
+      start = end + 1;
+      
       end = currentTime;
 
-       $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+      $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
+      {
+       start : start,
+       end  : end,
+       username : username,
+       password : password,
+       article : article,
+       taxonomy : taxonomy
+      },
+      function(data_rec)
+      {
+       var readValues = data_rec.split('/');
+       if(readValues != '')
        {
-         start : start,
-         end  : end,
-         username : username,
-         password : password,
-         article : article,
-         taxonomy : taxonomy
-       },
-       function(data_rec)
-       {
-         var readValues = data_rec.split('/');
-         y = readValues[0];
-     
-       });
+       var oddValues = getOddValues(readValues);
+       storedData = storedData.concat(oddValues);
+       }
+      });
 
-       data.push(y);
     }
+
+    printData = storedData.slice(storedData.length-totalPoints, storedData.length-1);
 
      // Zip the generated y values with the x values
 
      var res = [];
-     for (var i = 0; i < data.length; ++i) {
+     for (var i = 0; i < printData.length; ++i) {
        res.push([i, data[i]])
      }
 
