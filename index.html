@@ -18,17 +18,30 @@
 		</div>
 	</header>
 
-</form>
-<form class="form-container" name="subForm" id="subForm" onsubmit="submitForm(); return false;" >
-<div class="form-title"><h2>Sign in here</h2></div>
-<div class="form-title">Username</div>
-<input class="form-field" type="text" name="firstname" id="username" placeholder="username" required /><br/>
-<div class="form-title">Password</div>
-<input class="form-field" type="password" name="password" id="password" placeholder="password" required/><br />
-<div class="submit-container">
-<input class="submit-button" type="submit" value="login" id="call_back_btn"/>
-</div>
-</form>
-<div id="responseText"></div>
+	</form>
+
+	<div id="container">
+		
+		<form name="subForm" id="subForm" onsubmit="submitForm(); return false;">
+		
+		<label for="name">Username:</label>
+		
+		<input type="name" name="firstname" id="username" placeholder="username" required />
+		
+		<label for="username">Password:</label>
+
+		<input type="password" name="password" id="password" placeholder="password" required/>
+		
+		<div id="lower">
+		
+		<input type="submit" value="login" id="call_back_btn"/>
+		
+		</div>
+		
+		</form>
+		
+	</div>
+	
+	<div id="responseText"></div>
 </body>
 </html>
