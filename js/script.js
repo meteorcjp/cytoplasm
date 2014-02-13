@@ -165,21 +165,21 @@ function drawGraph1() {
   var totalPoints = 720;
 
   //var currentTime = Math.round(new Date().getTime()/1000);
- // var currentTime = '';
+  var currentTime = '';
   var username = localStorage.getItem("username");
   var password = localStorage.getItem("password");
 
-  //var start = currentTime-1;
-  //var end = currentTime;
+  var start = '';
+  var end = '';
 
   var article = localStorage.getItem("patientId");
   var taxonomy = 'health-cardio-heartrate';
 
   function getInitialData() {
 
-    var currentTime = Math.round(new Date().getTime()/1000);
-    var start = currentTime-3600;
-    var end = currentTime;
+    currentTime = Math.round(new Date().getTime()/1000);
+    start = currentTime-3600;
+    end = currentTime;
 
     
     $.post("http://comp2013.hyperspacedesign.co.uk/api/data/index.php" ,
