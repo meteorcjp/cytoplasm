@@ -106,7 +106,7 @@ function loadPatientDetails() {
   patientDetails.innerHTML = createPatientDetails(detailList);
   
   
-  //drawGraph1();
+  drawGraph1();
   drawGraph2();
   drawGraph3();
   drawGraph4();

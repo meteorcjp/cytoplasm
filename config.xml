@@ -18,6 +18,8 @@
 
     <preference name="phonegap-version"           value="3.3.0" />          
     <preference name="orientation"                value="landscape" /> 
-    <preference name="fullscreen"                 value="true" />    
+    <preference name="fullscreen"                 value="true" />
+    
+    <gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" version="1.2.0" />
 
 </widget>
