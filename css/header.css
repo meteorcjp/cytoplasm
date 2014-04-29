@@ -1,36 +1,21 @@
-section,p,div,img,h1,h2,h3,h4,h5,header,footer {
-font-family:"Open Sans",  Helvetica, Arial, sans-serif;
-font-weight: lighter;
-}
+
 header{
-    background-color: #f0f0f0; 
-	overflow: hidden;
-	height:90px;
+	position: fixed;
 	width:100%;
-	border-bottom: 1px solid #999;
-	margin-bottom: 20px;
-
+	left: 0;
+	top: 0;
+	background-color: #E0E0E0  ; 
 }
-
 
 header h1{
 	color: #777;
 	font-size: 2em;
-    text-align: center;
-	vertical-align: center;
+	text-align:center;
+    font-weight: normal;
+    
 }
 
-header h2{
-	color: #777;
-	font-size: 2em;
-	text-align:left;
-	vertical-align: center;
-    }
-header h3{
-	color:#444;
-	font-size:2em;
-	text-align:left;
 
-}
+
 
 

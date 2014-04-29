@@ -1,0 +1,13 @@
+ <widget id="com.example.hello" version="0.0.1">
+        <name>Cytoplasm</name>
+        <description>
+            Cytoplasm from UCL.
+        </description>
+        <author email="dev@callback.apache.org" href="http://phonegap.com">
+            Apache Cordova Team
+        </author>
+        <content src="index.html" />
+        <access origin="*" />
+        <preference name="Fullscreen" value="true" />
+        <preference name="WebViewBounce" value="true" />
+</widget>

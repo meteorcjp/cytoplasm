@@ -2,20 +2,23 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<script type="text/javascript" src="/js/jquery-1.10.2.js"></script> 
-	<script type="text/javascript" src="/js/script.js" ></script>
+	<script type="text/javascript" src="js/jquery-1.10.2.js"></script> 
+	<script type="text/javascript" src="js/script.js" ></script>
+	<script type="text/javascript" src="js/sha512.js" ></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/loginForm.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link ref="stylesheet" type="text/css" href="css/animate.css">
 	<title>Login Page</title>
-	<link rel="stylesheet" type="text/css" href="/css/loginForm.css">
-	<link rel="stylesheet" type="text/css" href="/css/header.css">
 </head>
 
-<body class="background">
+<body>
 	<form>
 		
 	 <header>
-	 	<div>
+	 	
 		<h1>Cytoplasm</h1>
-		</div>
+		
 	</header>
 
 	</form>
@@ -26,22 +29,23 @@
 		
 		<label for="name">Username:</label>
 		
-		<input type="name" name="firstname" id="username" placeholder="username" required />
+		<input type="name" id="username" placeholder="username" required />
 		
 		<label for="username">Password:</label>
 
-		<input type="password" name="password" id="password" placeholder="password" required/>
+		<input type="password" id="password" placeholder="password" required/>
 		
 		<div id="lower">
 		
-		<input type="submit" value="login" id="call_back_btn"/>
+		<input type="submit" value="login"/>
 		
 		</div>
 		
 		</form>
 		
+		<div  id="responseText"></div>
+
 	</div>
-	
-	<div id="responseText"></div>
+
 </body>
 </html>
