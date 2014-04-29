@@ -1,4 +1,4 @@
- <widget id="com.example.hello" version="0.0.1">
+ <widget id="com.example.hello" version="2.0.0" xmlns='http://www.w3.org/ns/widgets'>
         <name>Cytoplasm</name>
         <description>
             Cytoplasm from UCL.
@@ -9,5 +9,5 @@
         <content src="index.html" />
         <access origin="*" />
         <preference name="Fullscreen" value="true" />
-        <preference name="WebViewBounce" value="true" />
+        <preference name="Orientation" value="landscape" />
 </widget>
